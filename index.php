@@ -2,32 +2,22 @@
 
 require_once 'Bicycle.php';
 require_once 'Car.php';
-$bike = new Bicycle('blue');
-var_dump($bike);
+require_once 'Truck.php';
 
-$bike->setCurrentSpeed(0);
-var_dump($bike);
-$bike->dump();
+$bicycle = new Bicycle('blue', 1);
+echo $bicycle->forward();
+var_dump($bicycle);
 
-echo $bike->forward();
-echo '<br> Vitesse du vélo : ' . $bike->getCurrentSpeed() . 'km/h' . '<br>';
-echo $bike->brake();
-echo '<br> Vitesse du vélo : ' . $bike->getCurrentSpeed() . 'km/h' . '<br>';
-echo $bike->brake();
+$car = new Car('green', 4, 'electric');
+echo $car->forward();
+var_dump($car);
 
-$rockrider = new Bicycle('yellow');
+var_dump(Car::ALLOWED_ENERGIES);
 
-$tornado = new Bicycle('black');
-
-$tornado->forward();
-
-$homersSedan = new Car('pink', 5, 'gasoline');
-var_dump($homersSedan);
-
-echo $homersSedan->start();
-var_dump($homersSedan);
-echo $homersSedan->forward(15);
-echo '<br> Vitesse de la voiture : ' . $homersSedan->getCurrentSpeed() . 'km/h' . '<br>';
-echo $homersSedan->brake();
-echo '<br> Vitesse de la voiture : ' . $homersSedan->getCurrentSpeed() . 'km/h' . '<br>';
-echo $bike->brake();
+$truck = new Truck('red', 2, 'gasoline', 200);
+echo $truck->forward();
+var_dump($truck);
+echo $truck->filling();
+$truck->setLoading(200);
+echo $truck->filling();
+var_dump($truck);
