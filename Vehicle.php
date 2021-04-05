@@ -1,11 +1,13 @@
 <?php
 
-class Vehicle
+abstract class Vehicle
 {
     protected string $color;
     protected int $currentSpeed;
     protected int $nbSeats;
     protected int $nbWheels;
+
+    //abstract public function changeWheel();
 
     public function __construct(string $color, int $nbSeats)
     {
