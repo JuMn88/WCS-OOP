@@ -17,8 +17,12 @@ abstract class Vehicle
 
     public function forward(): string
     {
-        $this->currentSpeed = 15;
-        return "Go !";
+        if ($this->getHasParkBrake() === true) {
+            throw new Exception("The park brake is still on !");
+        } else {
+            $this->currentSpeed = 15;
+            return "Go !";
+        }
     }
 
     public function brake(): string
@@ -73,4 +77,5 @@ abstract class Vehicle
     {
         $this->nbWheels = $nbWheels;
     }
+
 }
