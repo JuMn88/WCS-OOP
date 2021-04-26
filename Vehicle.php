@@ -3,7 +3,7 @@
 abstract class Vehicle
 {
     protected string $color;
-    protected int $currentSpeed;
+    protected int $currentSpeed = 0;
     protected int $nbSeats;
     protected int $nbWheels;
 
@@ -17,12 +17,8 @@ abstract class Vehicle
 
     public function forward(): string
     {
-        if ($this->getHasParkBrake() === true) {
-            throw new Exception("The park brake is still on !");
-        } else {
-            $this->currentSpeed = 15;
-            return "Go !";
-        }
+        $this->currentSpeed = 15;
+        return "Go !";
     }
 
     public function brake(): string
